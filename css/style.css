@@ -1,0 +1,31 @@
+.tictacgrid{
+  width : 600px;
+  height : 600px;
+  background-color: yellow;
+  position:relative;
+  margin : 0 auto;
+}
+.tinytictac{
+  width : 186px;
+  height : 186px;
+  padding: 5px;
+  background-color: red;
+  position: relative;
+  display:inline-block;
+}
+
+.divtinycontainer{
+  margin : 0 auto;
+}
+.gamein{
+  color:red;
+  font-size: 180px;
+  font-weight: 700;
+  background-color:#FFF;
+}
+.gameinput{
+  color:red;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  font-size:150px;
+  font-weight: 700;
+}
