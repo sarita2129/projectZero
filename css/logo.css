@@ -21,3 +21,16 @@
   width:200px;
   height:200px;
 }
+.container{
+  width:600px;
+  height:600px;
+  background-color: yellow;
+  position:relative;
+}
+.divsmallgrid{
+  width:186px;
+  height:186px;
+  background-color: red;
+  position : relative;
+  display:inline-block;
+}

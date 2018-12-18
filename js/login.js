@@ -1,3 +1,4 @@
+$(document).ready(function(){
 
 const AuthorizeUser = function(){
   const user = $('#loginid').val();
@@ -14,11 +15,15 @@ const AuthorizeUser = function(){
 };
 $(document).on("click", "#login", function(){
   //alert($('#password').val());
+  const startPageUrl = 'https://sarita2129.github.io/projectZero/landing.html';
+  // const startPageUrl = 'file:///Users/saritanair/WDI/Projects/projectZero/landing.html';
+
   if(AuthorizeUser())
   {
-    window.location.href = "file:///Users/saritanair/WDI/Projects/projectZero/landing.html";
+    window.location.href = startPageUrl;
   }
   else {
     alert('Invalid User Id or password.');
   }
+});
 });

@@ -69,7 +69,7 @@ const ClearGameBoard = function(){
     $(this).find('span').removeClass('gameinput');
     $(this).addClass('tinytictac');
     $(this).removeClass('boxshadow');
-    //$(this).on("click" ,beginGame($(this)));
+    //$(this).bind("click" ,beginGame($(this)));
 
     //$(this).css('background-color','red');
    });
@@ -78,7 +78,10 @@ const ClearGameBoard = function(){
 //let userinPlay = "";
 let arrmoves = [];
 let turn = 1;
-const beginGame = function($obj){
+const beginGame = function($obj,e){
+    if($obj.find('span').hasClass('gameinput'))
+        e.preventDefault();
+
   console.log('turn '+ turn);
   //alert($obj.attr('id'));
   if(turn % 2 === 0)
@@ -92,8 +95,9 @@ const beginGame = function($obj){
 
   $obj.find('span').addClass('gameinput');
   //$(this).css('background-color','#FFF');
+  //e.preventDefault();
   $obj.removeClass('tinytictac');
-  // $obj.off("click");
+  //$obj.unbind("click");
   const inputparam = $obj.attr('id').split('');
   //alert(inputparam);
    arrmoves.push(moves(userinPlay,inputparam[0],inputparam[1]));
