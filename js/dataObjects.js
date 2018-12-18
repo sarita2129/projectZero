@@ -16,13 +16,23 @@
 //const player = ['X','O'];
 const player = [
     {
-      PlayerOne : "X",
+      Player : "X",
       score : "0"
     },
     {
-      Playetwo : "O",
+      Player : "O",
       score : "0"
+    }
+  ];
+  const Users = [
+    {
+      Name : "Steve",
+      psw : "password"
     },
+    {
+      Name : "Rebecca",
+      psw : "password"
+    }
   ];
 const moves = function(name,positionX,positionY){
   return {

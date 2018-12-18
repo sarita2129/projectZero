@@ -1,0 +1,114 @@
+body{
+    margin :0;
+    padding: :0;
+    background-color: #FFF;
+    color : #797878;
+}
+.headerdiv{
+  max-width : 100%;
+  margin : 0 auto;
+  height : 50px;
+  /*background-color: orange;*/
+  position : relative;
+}
+header{
+  position : fixed;
+  margin : 0 auto;
+  width : 100%;
+  /* background-color: orange; */
+
+}
+.logindiv{
+  width : 400px;
+  height: 300px;
+  border:1px solid orange;
+  margin:0 auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px orange;
+  background-color: #ccc;
+}
+nav{
+  width : 350px;
+  margin : 0 auto;
+  text-align: center;
+}
+nav ul li{
+  display : inline;
+  padding : 15px;
+  /* background-color: orange; */
+  color : #FFF;
+}
+nav ul li::after{
+  content: <i class="fas fa-arrow-circle-down"></i>;
+}
+nav ul {
+  width : 300px;
+  margin : auto;
+  padding:15px;
+    /*display: inline-block;
+    list-style-type: none;*/
+}
+.maindiv{
+  max-width: 960px;
+  margin: 0 auto;
+  border: 1px solid blank;
+  padding-top : 40px;
+  height : 620px;
+  overflow-y: auto;
+}
+main{
+  width:70%;
+  margin:0 auto;
+}
+.footerdiv{
+  max-width : 100%;
+  margin : 0 auto;
+  border : 1px solid black;
+  height : 50px;
+  bottom: 0;
+  position: relative;
+  /* background-color: orange; */
+}
+footer{
+  width:100%;
+  position : fixed;
+}
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid orange;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+label{
+  width: 40%;
+  margin: 10px;
+}
+/* Set a style for all buttons */
+button {
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 50px;
+  text-align: center;
+  padding: 10px 15px 10px 3px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 100px;
+  font-weight: 700;
+}
+.logindiv div{
+  margin: 10px;
+}
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+h2{
+  text-align: center;
+  font-size: 30px;
+}

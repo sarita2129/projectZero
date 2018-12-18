@@ -2,8 +2,48 @@
 body{
     margin :0;
     padding: :0;
-    background-color: maroon;
+    background-color: #000;
+    opacity:0.9;
+}
+h1 {
+  font-family: 'ZCOOL KuaiLe', cursive;
+  font-size: 60px;
+  margin:0;
+  /* color:orange;
+  text-shadow: 2px 2px green; */
 
+}
+.glow {
+  color: #fff;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FD3302, 0 0 40px #FD3302, 0 0 50px #FD3302, 0 0 60px #FD3302, 0 0 70px #FD3302;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #F7BAB7, 0 0 40px #F7BAB7, 0 0 50px #F7BAB7, 0 0 60px #F7BAB7, 0 0 70px #F7BAB7, 0 0 80px #F7BAB7;
+  }
+}
+h2{
+  text-align: center;
+  color:#797878;
+  border: 1px solid green;
+  height : 30px;
+  padding: 20px;
+  width: 150px;
+  margin : 0 auto;
+  border-radius: 10px;
+  background-color: orange;
+}
+.selectIcons{
+  border : 1px solid orange;
+  padding : 10px;
+  border-radius: 10px;
+  background-color: #F0F0F0;
 }
 .headerdiv{
   max-width : 100%;
@@ -11,6 +51,7 @@ body{
   height : 50px;
   /*background-color: orange;*/
   position : relative;
+  padding-bottom: 30px;
 }
 header{
   position : fixed;
@@ -20,7 +61,7 @@ header{
 
 }
 nav{
-  width : 350px;
+  width : 100%;
   margin : 0 auto;
   text-align: center;
 }
@@ -68,19 +109,20 @@ footer{
 .tictacgrid{
   width : 600px;
   height : 600px;
-  background-color: yellow;
-  position:relative;
   margin : 0 auto;
+  position:relative;
+  background-color: #FFF;
 }
-.tinytictac{
+.tinytictacdiv{
   width : 186px;
   height : 186px;
   padding: 5px;
-  background-color: red;
   position: relative;
   display:inline-block;
 }
-
+.tinytictac{
+  background-color: red;
+}
 .divtinycontainer{
   margin : 0 auto;
 }
@@ -95,4 +137,72 @@ footer{
   font-family: 'ZCOOL KuaiLe', cursive;
   font-size:150px;
   font-weight: 700;
+}
+.tictacgridIcon{
+  width : 150px;
+  height : 400px;
+  position:relative;
+  margin : 0 auto;
+}
+.tinytictacIcon{
+  width : 186px;
+  height : 150px;
+  padding: 5px;
+  position: relative;
+  display:inline-block;
+  margin:0 auto;;
+}
+.tinytictacIconX{
+  padding: 10px;
+  box-sizing: border-box;
+
+}
+.tinytictacIconO{
+  padding: 10px;
+  box-sizing: border-box;
+
+}
+.tinytictacIconX:hover{
+  background-color: orange;
+  margin:10px;
+}
+.tinytictacIconO:hover{
+  background-color: orange;
+  margin:10px;
+
+}
+.wrapper{
+  text-align: center;
+  width : 150px;
+  margin:0 auto;
+}
+.boxshadow{
+  box-shadow:
+  inset 5px 5px 50px #000000,
+  inset -5px -5px 50px green;
+  width:186px;
+  height:186px;
+}
+button {
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  padding: 10px 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
 }

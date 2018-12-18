@@ -1,5 +1,19 @@
 $(document).ready(function(){
 let result = 'false';
+let offender='',userinPlay='',userOne='', UserOneScore=0,UsertwoScore=0;
+if(userinPlay === '')
+{
+  $('.selectIcons').show();
+  $('.tictacgrid').hide();
+}
+// alert(userinPlay);
+const UpdateScore = function(score){
+  if(turn % 2 === 0)
+  UsertwoScore += score;
+  else
+  UserOneScore += score;
+
+};
 const checkforwinner = function(){
 
   let match = [];
@@ -22,12 +36,14 @@ const checkforwinner = function(){
 //alert(match.length);
       if(match.length === 3)
       {
+        UpdateScore(100);
         return false;
       }
      //console.log(arrwin[index1]);
    });
    if(match.length === 3)
    {
+     UpdateScore(100);
      return false;
    }
    else{
@@ -46,24 +62,39 @@ const ClearMatch = function(){
      arrmoves[arrindex].match = 0;
    });
 };
+const ClearGameBoard = function(){
+  const arrdiv = document.querySelectorAll('.tinytictacdiv');
+  $.each(arrdiv, function(arrindex,divlist){
+    $(this).find('span').text('');
+    $(this).find('span').removeClass('gameinput');
+    $(this).addClass('tinytictac');
+    $(this).removeClass('boxshadow');
+    //$(this).on("click" ,beginGame($(this)));
+
+    //$(this).css('background-color','red');
+   });
+};
 //console.log(`${result}`);
-let userinPlay = "";
+//let userinPlay = "";
 let arrmoves = [];
 let turn = 1;
-$('.tinytictac').on('click', function(){
+const beginGame = function($obj){
   console.log('turn '+ turn);
+  //alert($obj.attr('id'));
   if(turn % 2 === 0)
   {
-    userinPlay = 'O';
+    userinPlay = offender;
   }
   else {
-    userinPlay = 'X';
+    userinPlay = userOne;
   }
-  $(this).find('span').text(userinPlay);
+  $obj.find('span').text(userinPlay);
 
-  $(this).find('span').addClass('gameinput');
-  $(this).css('background-color','#FFF');
-  const inputparam = $(this).attr('id').split('');
+  $obj.find('span').addClass('gameinput');
+  //$(this).css('background-color','#FFF');
+  $obj.removeClass('tinytictac');
+  // $obj.off("click");
+  const inputparam = $obj.attr('id').split('');
   //alert(inputparam);
    arrmoves.push(moves(userinPlay,inputparam[0],inputparam[1]));
    //console.log(arrmoves);
@@ -81,17 +112,96 @@ $('.tinytictac').on('click', function(){
         if(match1.length === 3)
         {
           //player[0]
-          alert(`${match1[0].Player} is the winner !!!`);
+          //alert(match1[0].position);
+          $.each(match1, function(index, objmatch){
+            const id = match1[index].position.replace(',','');
+            alert(id);
+            $(`#${id}`).addClass('boxshadow');
+          });
+          alert(`${match1[0].Player} is the winner !!! your score is ` );
         }
         else if(turn === 9 && arrmoves.length === matchdraw.length)
         {
           alert(`Its a Draw !!!`);
 
         }
+        if(match1.length === 3)
+        {
+          if(turn % 2 === 0)
+          {
+            alert(UsertwoScore);
+          }
+          else {
+            alert(UserOneScore);
+          }
+        }
+
+
+
    //console.log(arrmoves);
    turn++;
+
+};
+$('.tinytictac').on('click', function(){
+  // alert(userinPlay);
+  // alert(offender);
+  beginGame($(this));
+
   //$(this).removeClass('tinytictac');
   //$(this).addClass('gameinput');
+});
+const switchUser = function(user){
+  userOne = user;
+  offender = (user === 'X') ? 'O' :'X';
+  //alert('one : '+ userOne);
+  //alert('offender ' + offender);
+
+//$('#play').removeAttr("disabled");
+
+};
+$(document).on("click", "#play", function(){
+  //alert('clicked');
+  $('.selectIcons').hide();
+  $('.tictacgrid').show();
+});
+
+$('.tinytictacIconX').on('click', function(){
+switchUser($(this).attr('id'));
+//alert($(this).attr('id'));
+   // const userinPlayobj = player.filter( function( el, index ) {
+   //  //alert(el.match);
+   //         return el.Player === $(this).attr('id');
+   //     });
+   //    const offenderobj = player.filter( function( el, index ) {
+   //      //alert(el.match);
+   //             return el.Player !== $(this).attr('id');
+   //         });
+           // console.log('userinPlayobj[0]',userinPlayobj[0]);
+
+       //window.location.href = "file:///Users/saritanair/WDI/Projects/projectZero/Welcome.html";
+
+});
+$('.tinytictacIconO').on('click', function(){
+  switchUser($(this).attr('id'));
+
+});
+$(document).on("click", "#again", function(){
+  ClearMatch();
+  arrmoves = [];
+  ClearGameBoard();
+  $('.selectIcons').hide();
+  $('.tictacgrid').show();
+  turn = 1;
+});
+$(document).on("click", "#exit", function(){
+  alert('clicked');
+  arrmoves = [];
+  offender='',userinPlay='',userOne='', UserOneScore=0,UsertwoScore=0;
+  ClearGameBoard();
+  ClearMatch();
+  turn = 1;
+  $('.selectIcons').show();
+  $('.tictacgrid').hide();
 });
 
 });
