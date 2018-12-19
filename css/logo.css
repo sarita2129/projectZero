@@ -30,7 +30,42 @@
 .divsmallgrid{
   width:186px;
   height:186px;
-  background-color: red;
   position : relative;
   display:inline-block;
+  top: 0px;
+  left: 0px;
+}
+.default-color{
+  background-color: red;
+}
+.click-color-X{
+  background: url(../images/img-x.png);
+  background-size: cover;
+}
+.click-color-O{
+  background: url(../images/img-x.png);
+  background-size: cover;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
 }

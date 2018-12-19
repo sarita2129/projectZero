@@ -1,11 +1,10 @@
-
 body{
     margin :0;
     padding: :0;
     background-color: #000;
     opacity:0.9;
 }
-h1 {
+.headerdiv h1 {
   font-family: 'ZCOOL KuaiLe', cursive;
   font-size: 60px;
   margin:0;
@@ -44,6 +43,7 @@ h2{
   padding : 10px;
   border-radius: 10px;
   background-color: #F0F0F0;
+  margin-top:20px;
 }
 .headerdiv{
   max-width : 100%;
@@ -58,7 +58,6 @@ header{
   margin : 0 auto;
   width : 100%;
   /* background-color: orange; */
-
 }
 nav{
   width : 100%;
@@ -85,9 +84,10 @@ nav ul {
   max-width: 960px;
   margin: 0 auto;
   border: 1px solid blank;
-  padding-top : 40px;
+  /* padding-top : 40px; */
   height : 620px;
   overflow-y: auto;
+  position:relative;
 }
 main{
   width:70%;
@@ -107,21 +107,24 @@ footer{
   position : fixed;
 }
 .tictacgrid{
-  width : 600px;
-  height : 600px;
+  width : 510px;
+  height : 510px;
   margin : 0 auto;
   position:relative;
+  margin-top : 20px;
   background-color: #FFF;
 }
 .tinytictacdiv{
-  width : 186px;
-  height : 186px;
+  width : 156px;
+  height : 156px;
   padding: 5px;
   position: relative;
   display:inline-block;
+  top: 0px;
+  left: 0px;
 }
 .tinytictac{
-  background-color: red;
+  background-color: orange;
 }
 .divtinycontainer{
   margin : 0 auto;
@@ -132,12 +135,21 @@ footer{
   font-weight: 700;
   background-color:#FFF;
 }
-.gameinput{
+ .gameinput{
   color:red;
   font-family: 'ZCOOL KuaiLe', cursive;
   font-size:150px;
   font-weight: 700;
 }
+.gameinput-X{
+  background: url(../images/img-x.png);
+  background-size: cover;
+}
+.gameinput-O{
+  background: url(../images/img-o.png);
+  background-size: cover;
+}
+
 .tictacgridIcon{
   width : 150px;
   height : 400px;
@@ -180,8 +192,8 @@ footer{
   box-shadow:
   inset 5px 5px 50px #000000,
   inset -5px -5px 50px green;
-  width:186px;
-  height:186px;
+  width:156px;
+  height:156px;
 }
 button {
   background-color: orange;
@@ -194,6 +206,11 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  top:0px;
+  left:0px;
+}
+.buttonright {
+  float : right;
 }
 button:disabled,
 button[disabled]{
@@ -205,4 +222,10 @@ button[disabled]{
 /* Add a hover effect for buttons */
 button:hover {
   opacity: 0.8;
+}
+.dialog {
+  font-family: 'Indie Flower', cursive;
+  font-size:20px;
+  color : red;
+  width : 300px;
 }
