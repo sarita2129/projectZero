@@ -15,8 +15,8 @@ const authorizeUser = function(){
 };
 $(document).on("click", "#login", function(){
   //alert($('#password').val());
-  //const startPageUrl = 'https://sarita2129.github.io/projectZero/landing.html';
-  const startPageUrl = 'file:///Users/saritanair/WDI/Projects/projectZero/landing.html';
+  const startPageUrl = 'https://sarita2129.github.io/projectZero/landing.html';
+  //const startPageUrl = 'file:///Users/saritanair/WDI/Projects/projectZero/landing.html';
 
   if(authorizeUser())
   {

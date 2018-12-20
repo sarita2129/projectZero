@@ -109,7 +109,7 @@ const checkforWinner = function(){
      createDialogBox(`Its a Draw !!!.`,'');
    }
 };
-const beginGame = function($obj,e){
+const beginGame = function($obj){
     if($obj.hasClass(`gameinput-${playerOne}`) || $obj.hasClass(`gameinput-${playerTwo}`))
         return;
       if(turn % 2 === 0)
@@ -127,8 +127,8 @@ const beginGame = function($obj,e){
        checkforWinner();
        turn++;
 };
-$('.tinytictac').on('click', function(event){
-  beginGame($(this),event);
+$('.tinytictac').on('click', function(){
+  beginGame($(this));
 });
 const switchUser = function(user){
   playerOne = user;
