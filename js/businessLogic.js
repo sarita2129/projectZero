@@ -145,7 +145,7 @@ $(document).on("click", "#play", function(){
 
 $('.tinytictacIconX').on('click', function(){
   $('#play').prop('disabled',false);
-switchUser($(this).attr('id'));
+  switchUser($(this).attr('id'));
 });
 $('.tinytictacIconO').on('click', function(){
   $('#play').prop('disabled',false);
@@ -163,6 +163,7 @@ $(document).on("click", "#again", function(){
 });
 $(document).on("click", "#exit", function(){
   ClearSession();
+  $('#play').prop('disabled',true);
   playerTwo='',userinPlay='',playerOne='', userOneScore=0,usertwoScore=0;
   toggleDiv($('.tictacgrid'),$('.selectIcons'));
 });
