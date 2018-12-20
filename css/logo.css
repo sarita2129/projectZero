@@ -21,11 +21,26 @@
   width:200px;
   height:200px;
 }
+.divmain{
+  width: 900px;
+  position:relative;
+
+}
 .container{
   width:600px;
   height:600px;
   background-color: yellow;
   position:relative;
+  top:0px;
+  left:0px;
+}
+.dancingpig{
+  width:100px;
+  height:100px;
+  background-color: blue;
+  position:relative;
+  top:0px;
+  left:0px;
 }
 .divsmallgrid{
   width:186px;
@@ -63,6 +78,21 @@
   line-height: 20px;
   cursor: pointer;
   transition: 0.3s;
+}
+.dialog {
+  font-family: 'Indie Flower', cursive;
+  font-size:20px;
+  color : red;
+  width : 400px;
+  height : 400px;
+}
+.ui-dialog {
+position: absolute;
+top: 0;
+left: 0;
+padding: .2em;
+outline: 0;
+width: 400px !important;
 }
 
 /* When moving the mouse over the close button */

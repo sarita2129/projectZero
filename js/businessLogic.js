@@ -1,6 +1,6 @@
 $(document).ready(function(){
 let result = 'false';
-let offender='',userinPlay='',userOne='', UserOneScore=0,UsertwoScore=0;
+let playerTwo='',userinPlay='',playerOne='', userOneScore=0,usertwoScore=0;
 let arrmoves = [];
 let turn = 1;
 const toggleDiv = function($hidediv,$showdiv){
@@ -10,15 +10,12 @@ const toggleDiv = function($hidediv,$showdiv){
 if(userinPlay === '')
 {
   toggleDiv($('.tictacgrid'),$('.selectIcons'));
-  // $('.selectIcons').show();
-  // $('.tictacgrid').hide();
 }
-const UpdateScore = function(score){
+const updateScore = function(score){
   if(turn % 2 === 0)
-  UsertwoScore += score;
+  usertwoScore += score;
   else
-  UserOneScore += score;
-
+  userOneScore += score;
 };
 
 const saveMoves = function(){
@@ -37,50 +34,59 @@ const saveMoves = function(){
             });
         if(match.length === 3)
         {
-          UpdateScore(100);
+          updateScore(100);
           return false;
         }
    });
    if(match.length === 3)
    {
-     //UpdateScore(100);
      return false;
    }
    else{
-     ClearMatch();
+     clearMatch();
    }
-
  });
  return result;
 };
 
-const ClearMatch = function(){
+const clearMatch = function(){
   $.each(arrmoves, function(arrindex,moveslist){
      arrmoves[arrindex].match = 0;
    });
 };
-const ClearGameBoard = function(){
+const clearGameBoard = function(){
   const arrdiv = document.querySelectorAll('.tinytictacdiv');
   $.each(arrdiv, function(arrindex,divlist){
     $(this).attr('class','')
     $(this).addClass('tinytictacdiv tinytictac');
    });
 };
-var createDialogBox = function(text , title) {
-    if($("body #dialog h1").length)
-    {
-      $('#dialog h1').html(text);
-      $('#dialog h1').prop('title' , title);
+var createDialogBox = function(text , titletext) {
+  let dialog = '';
+  if($("body #dialog h1").length){
+        $('body #dialog').empty();
+        if(titletext === ''){
+        dialog = `<h1> ${text} </h1>`;
+        }
+        else{
+          dialog = `<img src="images/cartoon-dancing-pig-1.gif" alt="" width="210px" height="270px"><h1>${text}<h1>`;
+          }
+          $('#dialog').append(dialog);
+        }
+          else{
+                if(titletext === ''){
+                  dialog =  '<div id="dialog" class="dialog"><h1>' + text + '</h1></div>';
+                  $('body').append(dialog);
+                }
+                else{
+                        dialog =  '<div id="dialog" class="dialog"><img src="images/cartoon-dancing-pig-1.gif" alt="" width="210px" height="270px"><h1>'+ text +'<h1></div>';
+                        $('body').append(dialog);
+                }
+              }
+          $('#dialog').prop('title' , titletext);
+          $('#dialog').dialog();
+  };
 
-    }
-    else {
-      var dialog =  '<div id="dialog" class="dialog"><h1>' + text + '</h1></div>';
-      $('body').append(dialog);
-
-    }
-    $('#dialog').prop('title' , title);
-    $('#dialog').dialog();
-};
 const checkforWinner = function(){
   const match = arrmoves.filter( function( el, index ) {
        return Number(el.match) === 1 && el.Player === userinPlay;
@@ -94,44 +100,39 @@ const checkforWinner = function(){
        const id = match[index].position.replace(',','');
        $(`#${id}`).addClass('boxshadow');
      });
-     const finalscore = (turn % 2 === 0) ? UsertwoScore : UserOneScore;
-     const msgtext = `${match[0].Player} is the winner !!! your score is ${finalscore}.`;
+     const finalscore = (turn % 2 === 0) ? usertwoScore : userOneScore;
+     const msgtext = `${match[0].Player} is the winner !!! <br />Score is ${finalscore}.`;
      createDialogBox(msgtext,`Yipppi`);
    }
    else if(turn === 9 && arrmoves.length === matchdraw.length)
    {
-     createDialogBox(`Its a Draw !!!.`,``);
+     createDialogBox(`Its a Draw !!!.`,'');
    }
 };
 const beginGame = function($obj,e){
-    if($obj.hasClass(`gameinput-${userOne}`) || $obj.hasClass(`gameinput-${offender}`))
+    if($obj.hasClass(`gameinput-${playerOne}`) || $obj.hasClass(`gameinput-${playerTwo}`))
         return;
-
-  // console.log('turn '+ turn);
       if(turn % 2 === 0)
       {
-        userinPlay = offender;
+        userinPlay = playerTwo;
       }
       else {
-        userinPlay = userOne;
+        userinPlay = playerOne;
       }
       $obj.addClass(`gameinput-${userinPlay}`);
       $obj.removeClass('tinytictac');
       const inputparam = $obj.attr('id').split('');
        arrmoves.push(moves(userinPlay,inputparam[0],inputparam[1]));
        saveMoves(userinPlay);
-       // console.log(arrmoves);
        checkforWinner();
-
        turn++;
-
 };
 $('.tinytictac').on('click', function(event){
   beginGame($(this),event);
 });
 const switchUser = function(user){
-  userOne = user;
-  offender = (user === 'X') ? 'O' :'X';
+  playerOne = user;
+  playerTwo = (user === 'X') ? 'O' :'X';
 };
 $(document).on("click", "#play", function(){
   toggleDiv($('.selectIcons'),$('.tictacgrid'));
@@ -139,29 +140,24 @@ $(document).on("click", "#play", function(){
 
 $('.tinytictacIconX').on('click', function(){
 switchUser($(this).attr('id'));
-
 });
 $('.tinytictacIconO').on('click', function(){
   switchUser($(this).attr('id'));
-
 });
-
-$(document).on("click", "#again", function(){
-  ClearMatch();
+const ClearSession = function(){
+  clearMatch();
   arrmoves = [];
-  ClearGameBoard();
-  toggleDiv($('.selectIcons'),$('.tictacgrid'));
+  clearGameBoard();
   turn = 1;
+};
+$(document).on("click", "#again", function(){
+  ClearSession();
+  toggleDiv($('.selectIcons'),$('.tictacgrid'));
 });
 $(document).on("click", "#exit", function(){
-  arrmoves = [];
-  offender='',userinPlay='',userOne='', UserOneScore=0,UsertwoScore=0;
-  ClearGameBoard();
-  ClearMatch();
-  turn = 1;
+  ClearSession();
+  playerTwo='',userinPlay='',playerOne='', userOneScore=0,usertwoScore=0;
   toggleDiv($('.tictacgrid'),$('.selectIcons'));
-  // $('.selectIcons').show();
-  // $('.tictacgrid').hide();
 });
 
 });

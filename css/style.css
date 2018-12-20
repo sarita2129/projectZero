@@ -227,5 +227,22 @@ button:hover {
   font-family: 'Indie Flower', cursive;
   font-size:20px;
   color : red;
-  width : 300px;
+  /* width : 300px; */
+  margin:0 auto;
+  box-sizing: border-box;
+}
+.dialog h1{
+  display: inline;
+  top: 0px;
+  position: absolute;
+  vertical-align: top;
+  margin : 0 auto;
+}
+.ui-dialog {
+position: absolute;
+top: 0;
+left: 0;
+padding: .2em;
+outline: 0;
+width: 450px !important;
 }

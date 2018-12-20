@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-const AuthorizeUser = function(){
+const authorizeUser = function(){
   const user = $('#loginid').val();
   const psw = $('#password').val();
   const User = Users.filter( function( el, index ) {
@@ -15,10 +15,10 @@ const AuthorizeUser = function(){
 };
 $(document).on("click", "#login", function(){
   //alert($('#password').val());
-  const startPageUrl = 'https://sarita2129.github.io/projectZero/landing.html';
-  // const startPageUrl = 'file:///Users/saritanair/WDI/Projects/projectZero/landing.html';
+  //const startPageUrl = 'https://sarita2129.github.io/projectZero/landing.html';
+  const startPageUrl = 'file:///Users/saritanair/WDI/Projects/projectZero/landing.html';
 
-  if(AuthorizeUser())
+  if(authorizeUser())
   {
     window.location.href = startPageUrl;
   }
