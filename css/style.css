@@ -18,7 +18,17 @@ body{
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
-
+a{
+  right: 10px;
+  background-color: #FFF;
+  padding: 10px;
+  display: inline-block;
+  top: 10px;
+  position: absolute;
+  border-radius:5px;
+  text-decoration: none;
+  color:#000;
+}
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FD3302, 0 0 40px #FD3302, 0 0 50px #FD3302, 0 0 60px #FD3302, 0 0 70px #FD3302;
