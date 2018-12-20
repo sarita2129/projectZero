@@ -42,11 +42,11 @@
           <h2>Select Icons</h2>
 
           <div class="tictacgridIcon">
-              <div class="tinytictacIconX" id="X"><span class="gameinput">X</span></div>
-              <div class="tinytictacIconO" id="O"><span class="gameinput">O</span></div>
+              <div class="tinytictacIconX" id="X" tabindex="1"><span class="gameinput">X</span></div>
+              <div class="tinytictacIconO" id="O" tabindex="2"><span class="gameinput">O</span></div>
           </div>
           <div class="wrapper">
-            <button type="submit" id="play">Go>></button>
+            <button type="submit" id="play" disabled="disabled"> Go>></button>
 
           </div>
         </div>
@@ -69,6 +69,10 @@
               <button type="submit" id="exit" >Exit</button>
 
             </div>
+            <audio id="myAudio">
+              <source src="audio/TinyButton.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
         </div>
         <!-- <a href="/landing.html">Play Again</a> -->
 

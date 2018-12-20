@@ -33,10 +33,15 @@
         <div class="divsmallgrid default-color" ></div>
       </div>
 
-      <audio id="beeper">
-      	<source src="audio/beep.mp3"></source>
-      	<source src="audio/beep.ogg"></source>
-      	Your browser isn't invited for super fun audio time.
+      <audio id="myAudio" class="test">
+        <!-- <source src="audio/beep.ogg" type="audio/ogg"> -->
+        <source src="audio/TinyButton.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
       </audio>
+
+      <p>Click the buttons to play or pause the audio.</p>
+
+      <button onclick="playAudio()" type="button">Play Audio</button>
+      <button onclick="pauseAudio()" type="button">Pause Audio</button>
 </body>
 </html>

@@ -121,6 +121,8 @@ const beginGame = function($obj){
       }
       $obj.addClass(`gameinput-${userinPlay}`);
       $obj.removeClass('tinytictac');
+
+
       const inputparam = $obj.attr('id').split('');
        arrmoves.push(moves(userinPlay,inputparam[0],inputparam[1]));
        saveMoves(userinPlay);
@@ -128,6 +130,9 @@ const beginGame = function($obj){
        turn++;
 };
 $('.tinytictac').on('click', function(){
+  var tick = document.getElementById("myAudio");
+  tick.play().catch(function () {});
+
   beginGame($(this));
 });
 const switchUser = function(user){
@@ -139,9 +144,11 @@ $(document).on("click", "#play", function(){
 });
 
 $('.tinytictacIconX').on('click', function(){
+  $('#play').prop('disabled',false);
 switchUser($(this).attr('id'));
 });
 $('.tinytictacIconO').on('click', function(){
+  $('#play').prop('disabled',false);
   switchUser($(this).attr('id'));
 });
 const ClearSession = function(){

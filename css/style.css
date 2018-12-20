@@ -166,23 +166,29 @@ footer{
 }
 .tinytictacIconX{
   padding: 10px;
+  margin:5px;
   box-sizing: border-box;
+
+}
+.tictacgridIcon div:active{
+  border: 1px solid green;
+  background-color: orange;
 
 }
 .tinytictacIconO{
   padding: 10px;
+  margin:5px;
   box-sizing: border-box;
 
 }
-.tinytictacIconX:hover{
-  background-color: orange;
+/* .tinytictacIconX:hover{
   margin:10px;
 }
 .tinytictacIconO:hover{
   background-color: orange;
   margin:10px;
 
-}
+} */
 .wrapper{
   text-align: center;
   width : 150px;
