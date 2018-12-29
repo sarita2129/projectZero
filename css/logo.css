@@ -1,90 +1,258 @@
+body{
+    margin :0;
+    padding: :0;
+    background-color: #000;
+    opacity:0.9;
+}
+.headerdiv h1 {
+  font-family: 'ZCOOL KuaiLe', cursive;
+  font-size: 60px;
+  margin:0;
+  /* color:orange;
+  text-shadow: 2px 2px green; */
+
+}
 .glow {
   color: #fff;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
-
+a{
+  right: 10px;
+  background-color: #FFF;
+  padding: 10px;
+  display: inline-block;
+  top: 10px;
+  position: absolute;
+  border-radius:5px;
+  text-decoration: none;
+  color:#000;
+}
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #F91005, 0 0 40px #F91005, 0 0 50px #F91005, 0 0 60px #F91005, 0 0 70px #F91005;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #FD3302, 0 0 40px #FD3302, 0 0 50px #FD3302, 0 0 60px #FD3302, 0 0 70px #FD3302;
   }
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #F7BAB7, 0 0 40px #F7BAB7, 0 0 50px #F7BAB7, 0 0 60px #F7BAB7, 0 0 70px #F7BAB7, 0 0 80px #F7BAB7;
   }
 }
-
-.boxshadow{
-  box-shadow:
-  inset 5px 5px 50px #000000,
-  inset -5px -5px 50px green;
-  width:200px;
-  height:200px;
+h2{
+  text-align: center;
+  color:#797878;
+  border: 1px solid green;
+  height : 30px;
+  padding: 20px;
+  width: 150px;
+  margin : 0 auto;
+  border-radius: 10px;
+  background-color: orange;
 }
-.divmain{
-  width: 900px;
-  position:relative;
-
+.selectIcons{
+  border : 1px solid orange;
+  padding : 10px;
+  border-radius: 10px;
+  background-color: #F0F0F0;
+  margin-top:20px;
 }
-.container{
-  width:600px;
-  height:600px;
-  background-color: yellow;
-  position:relative;
-  top:0px;
-  left:0px;
-}
-.dancingpig{
-  width:100px;
-  height:100px;
-  background-color: blue;
-  position:relative;
-  top:0px;
-  left:0px;
-}
-.divsmallgrid{
-  width:186px;
-  height:186px;
+.headerdiv{
+  max-width : 100%;
+  margin : 0 auto;
+  height : 50px;
+  /*background-color: orange;*/
   position : relative;
+  padding-bottom: 30px;
+}
+header{
+  position : fixed;
+  margin : 0 auto;
+  width : 100%;
+  /* background-color: orange; */
+}
+nav{
+  width : 100%;
+  margin : 0 auto;
+  text-align: center;
+}
+nav ul li{
+  display : inline;
+  padding : 15px;
+  /* background-color: orange; */
+  color : #FFF;
+}
+nav ul li::after{
+  content: <i class="fas fa-arrow-circle-down"></i>;
+}
+nav ul {
+  width : 300px;
+  margin : auto;
+  padding:15px;
+    /*display: inline-block;
+    list-style-type: none;*/
+}
+.maindiv{
+  max-width: 960px;
+  margin: 0 auto;
+  border: 1px solid blank;
+  /* padding-top : 40px; */
+  height : 620px;
+  overflow-y: auto;
+  position:relative;
+}
+main{
+  width:70%;
+  margin:0 auto;
+}
+.footerdiv{
+  max-width : 100%;
+  margin : 0 auto;
+  border : 1px solid black;
+  height : 50px;
+  bottom: 0;
+  position: relative;
+  /* background-color: orange; */
+}
+footer{
+  width:100%;
+  position : fixed;
+}
+.tictacgrid{
+  width : 510px;
+  height : 510px;
+  margin : 0 auto;
+  position:relative;
+  margin-top : 20px;
+  background-color: #FFF;
+}
+.tinytictacdiv{
+  width : 156px;
+  height : 156px;
+  padding: 5px;
+  position: relative;
   display:inline-block;
   top: 0px;
   left: 0px;
 }
-.default-color{
-  background-color: red;
+.tinytictac{
+  background-color: orange;
 }
-.click-color-X{
+.divtinycontainer{
+  margin : 0 auto;
+}
+.gamein{
+  color:red;
+  font-size: 180px;
+  font-weight: 700;
+  background-color:#FFF;
+}
+ .gameinput{
+  color:red;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  font-size:150px;
+  font-weight: 700;
+}
+.gameinput-X{
   background: url(../images/img-x.png);
   background-size: cover;
 }
-.click-color-O{
-  background: url(../images/img-x.png);
+.gameinput-O{
+  background: url(../images/img-o.png);
   background-size: cover;
-}
-.alert {
-  padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
-  margin-bottom: 15px;
 }
 
-/* The close button */
-.closebtn {
-  margin-left: 15px;
+.tictacgridIcon{
+  width : 150px;
+  height : 400px;
+  position:relative;
+  margin : 0 auto;
+}
+.tinytictacIcon{
+  width : 186px;
+  height : 150px;
+  padding: 5px;
+  position: relative;
+  display:inline-block;
+  margin:0 auto;;
+}
+.tinytictacIconX{
+  padding: 10px;
+  margin:5px;
+  box-sizing: border-box;
+
+}
+.tictacgridIcon div:active{
+  border: 1px solid green;
+  background-color: orange;
+
+}
+.tinytictacIconO{
+  padding: 10px;
+  margin:5px;
+  box-sizing: border-box;
+
+}
+/* .tinytictacIconX:hover{
+  margin:10px;
+}
+.tinytictacIconO:hover{
+  background-color: orange;
+  margin:10px;
+
+} */
+.wrapper{
+  text-align: center;
+  width : 150px;
+  margin:0 auto;
+}
+.boxshadow{
+  box-shadow:
+  inset 5px 5px 50px #000000,
+  inset -5px -5px 50px green;
+  width:156px;
+  height:156px;
+}
+button {
+  background-color: orange;
   color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  width: 100px;
+  text-align: center;
+  padding: 10px 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  top:0px;
+  left:0px;
+}
+.buttonright {
+  float : right;
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
 }
 .dialog {
   font-family: 'Indie Flower', cursive;
   font-size:20px;
   color : red;
-  width : 400px;
-  height : 400px;
+  /* width : 300px; */
+  margin:0 auto;
+  box-sizing: border-box;
+}
+.dialog h1{
+  display: inline;
+  top: 0px;
+  position: absolute;
+  vertical-align: top;
+  margin : 0 auto;
 }
 .ui-dialog {
 position: absolute;
@@ -92,10 +260,5 @@ top: 0;
 left: 0;
 padding: .2em;
 outline: 0;
-width: 400px !important;
-}
-
-/* When moving the mouse over the close button */
-.closebtn:hover {
-  color: black;
+width: 450px !important;
 }

@@ -3,6 +3,46 @@ let result = 'false';
 let playerTwo='',userinPlay='',playerOne='', userOneScore=0,usertwoScore=0;
 let arrmoves = [];
 let turn = 1;
+let playing = false,playwin=false,playdraw=false;
+const playbackground = function(){
+  if(playing === false)
+  {
+    playing = true;
+    $('#myAudio_load').get(0).play();//.catch(function () {});
+  }
+  else {
+    playing = false;
+    $('#myAudio_load').get(0).pause();//.catch(function () {});
+  }
+}
+const playwinningsound = function(){
+  playbackground();
+  if(playwin ===false)
+  {
+    $('#myAudio_win').get(0).play();//.catch(function () {});
+    $('#myAudio_win').get(0).currentTime = 0
+    playwin = true;
+  }
+  else {
+    $('#myAudio_win').get(0).pause();//.catch(function () {});
+    playwin = false;
+  }
+}
+const playdrawsound = function(){
+  playbackground();
+  // $('#myAudio_draw').get(0).play();//.catch(function () {});
+  if(playdraw ===false)
+  {
+    $('#myAudio_draw').get(0).play();//.catch(function () {});
+    $('#myAudio_draw').get(0).currentTime = 0
+    playdraw = true;
+  }
+  else {
+    $('#myAudio_draw').get(0).pause();//.catch(function () {});
+    playdraw = false;
+  }
+
+}
 const toggleDiv = function($hidediv,$showdiv){
   $hidediv.hide();
   $showdiv.show();
@@ -66,7 +106,7 @@ var createDialogBox = function(text , titletext) {
   if($("body #dialog h1").length){
         $('body #dialog').empty();
         if(titletext === ''){
-        dialog = `<h1> ${text} </h1>`;
+        dialog = `<img src="images/cryingbubbles.gif" alt="" width="210px" height="270px"><h1> ${text} </h1>`;
         }
         else{
           dialog = `<img src="images/cartoon-dancing-pig-1.gif" alt="" width="210px" height="270px"><h1>${text}<h1>`;
@@ -75,7 +115,7 @@ var createDialogBox = function(text , titletext) {
         }
           else{
                 if(titletext === ''){
-                  dialog =  '<div id="dialog" class="dialog"><h1>' + text + '</h1></div>';
+                  dialog =  '<div id="dialog" class="dialog"><img src="images/cryingbubbles.gif" alt="" width="300px" height="200px"><h1>' + text + '</h1></div>';
                   $('body').append(dialog);
                 }
                 else{
@@ -83,8 +123,23 @@ var createDialogBox = function(text , titletext) {
                         $('body').append(dialog);
                 }
               }
+              // console.log($('#ui-id-1').html());
+              // $('#ui-id-1').html(text);
           $('#dialog').prop('title' , titletext);
-          $('#dialog').dialog();
+          $('#dialog').dialog({
+            // buttons: {
+            //
+            //     "CANCEL": function() {
+            //       alert('close');
+            //       $(this).dialog("close");
+            //     }
+            //   }
+            close: function() {
+                titletext === '' ? playdrawsound() : playwinningsound();
+
+            }
+          });
+          // $('.ui-dialog-titlebar button').on('click',alert('hello'));
   };
 
 const checkforWinner = function(){
@@ -102,10 +157,12 @@ const checkforWinner = function(){
      });
      const finalscore = (turn % 2 === 0) ? usertwoScore : userOneScore;
      const msgtext = `${match[0].Player} is the winner !!! <br />Score is ${finalscore}.`;
+     playwinningsound();
      createDialogBox(msgtext,`Yipppi`);
    }
    else if(turn === 9 && arrmoves.length === matchdraw.length)
    {
+     playdrawsound();
      createDialogBox(`Its a Draw !!!.`,'');
    }
 };
@@ -121,7 +178,6 @@ const beginGame = function($obj){
       }
       $obj.addClass(`gameinput-${userinPlay}`);
       $obj.removeClass('tinytictac');
-
 
       const inputparam = $obj.attr('id').split('');
        arrmoves.push(moves(userinPlay,inputparam[0],inputparam[1]));
@@ -141,6 +197,8 @@ const switchUser = function(user){
 };
 $(document).on("click", "#play", function(){
   toggleDiv($('.selectIcons'),$('.tictacgrid'));
+  playbackground();
+
 });
 
 $('.tinytictacIconX').on('click', function(){
@@ -156,16 +214,21 @@ const ClearSession = function(){
   arrmoves = [];
   clearGameBoard();
   turn = 1;
+  playing = false;
+  playwin = false;
+  playdraw = false;
 };
 $(document).on("click", "#again", function(){
   ClearSession();
+  playbackground();
   toggleDiv($('.selectIcons'),$('.tictacgrid'));
 });
 $(document).on("click", "#exit", function(){
+  playbackground();
   ClearSession();
   $('#play').prop('disabled',true);
   playerTwo='',userinPlay='',playerOne='', userOneScore=0,usertwoScore=0;
   toggleDiv($('.tictacgrid'),$('.selectIcons'));
 });
-
+// setInterval(playbackground(),1000);
 });
