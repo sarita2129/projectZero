@@ -5,32 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-
   <script src="js/jquery.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe">
+  <script src="js/jquery-ui.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe">
   <script src="js/dataObjects.js"></script>
   <script src="js/businessLogic.js"></script>
 </head>
 <body>
-  <header>
-    <a href="https://cooltext.com">
-      <img src="https://images.cooltext.com/5233785.gif" width="337" height="102" alt="TIC TAC TOE" /></a>
-<br />Image by <a href="https://cooltext.com">Cool Text: Logo and Button Generator</a> -
-<a href="https://cooltext.com/Edit-Logo?LogoID=3094905424">Create Your Own Logo</a>
-    </header>
-<div class="tictacgrid">
-    <div class="tinytictac" id="00"><span></span></div>
-    <div class="tinytictac" id="01"><span></span></div>
-    <div class="tinytictac" id="02"><span></span></div>
-    <div class="tinytictac" id="10"><span></span></div>
-    <div class="tinytictac" id="11"><span></span></div>
-    <div class="tinytictac" id="12"><span></span></div>
-    <div class="tinytictac" id="20"><span></span></div>
-    <div class="tinytictac" id="21"><span></span></div>
-    <div class="tinytictac" id="22"><span></span></div>
-</div>
+  <body>
+
+    <div class="headerdiv">
+      <header>
+
+        <nav>
+
+          <h1 class="glow">TIC TAC TOE</h1>
+          <!-- <a href="https://sarita2129.github.io/projectZero/login.html">Sign Out</a> -->
+          <nav>
+      </header>
+    </div>
+    <div class="maindiv">
+      <main>
+        <!-- <img src="http://fillmurray.com/600/400" alt=""> -->
+        <div class="selectIcons">
+          <h2>Select Icons</h2>
+
+          <div class="tictacgridIcon">
+              <div class="tinytictacIconX" id="X" tabindex="1"><span class="gameinput">X</span></div>
+              <div class="tinytictacIconO" id="O" tabindex="2"><span class="gameinput">O</span></div>
+          </div>
+          <div class="wrapper">
+            <button type="submit" id="play" disabled="disabled"> Go>></button>
+
+          </div>
+        </div>
+
+        <div class="tictacgrid">
+            <div class="tinytictac tinytictacdiv" id="00"></div>
+            <div class="tinytictac tinytictacdiv" id="01"></div>
+            <div class="tinytictac tinytictacdiv" id="02"></div>
+            <div class="tinytictac tinytictacdiv" id="10"></div>
+            <div class="tinytictac tinytictacdiv" id="11"></div>
+            <div class="tinytictac tinytictacdiv" id="12"></div>
+            <div class="tinytictac tinytictacdiv" id="20"></div>
+            <div class="tinytictac tinytictacdiv" id="21"></div>
+            <div class="tinytictac tinytictacdiv" id="22"></div>
+
+            <br />
+            <br />
 
 
-</body>
-</html>
+            <button type="submit" id="again">Play Again</button>
+            <div class="buttonright">
+              <button type="submit" id="exit" >Exit</button>
+
+            </div>
+            <audio id="myAudio">
+              <source src="audio/TinyButton.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <audio id="myAudio_load" loop="loop">
+              <source src="audio/Pacman_Introduction_Music-KP-826387403.mp3" type="audio/mpeg">
+              </audio>
+              <audio id="myAudio_win" >
+                <source src="audio/SMALL_CROWD_APPLAUSE-Yannick_Lemieux-1268806408.mp3" type="audio/mpeg">
+                </audio>
+                <audio id="myAudio_draw">
+                  <source src="audio/candy_crush_lose.mp3" type="audio/mpeg">
+                  </audio>
+            <!-- <embed name="StartTICTACTOE" src="audio/Pacman_Introduction_Music-KP-826387403.mp3" hidden="true" autostart="true" loop="true"> -->
+
+        </div>
+        <!-- <a href="/landing.html">Play Again</a> -->
+
+      </main>
+
+
+      <!-- <a href="file:///Users/saritanair/WDI/Projects/projectZero/login.html">Exit</a> -->
+    </div>
+    <div class="footerdiv">
+      <footer>
+
+      </footer>
+
+    </div>
+    </body>
+    </html>

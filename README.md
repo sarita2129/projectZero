@@ -2,28 +2,20 @@
 
 **Summary :**
 
-Enjoy playing TIC TAC TOE over internet. This game helps you select the symbol and determine the outcome of the game(i.e winner or Draw). It keeps track of the players score, if won.
+Enjoy playing TIC TAC TOE over internet. This is simple version of tictactoe created using HTML and javascript. This game helps you select the symbol and determine the outcome of the game(i.e winner or Draw). It keeps track of the players score, if won.
 
 **Library :**
 jquery
 Jquery.ui
 
 **Link to the game :**
-https://sarita2129.github.io/projectZero/login.html
+https://sarita2129.github.io/projectZero/
 
-* User1 : Steve
-* Password : Password
-
-
-* User1 : Rebecca
-* Password : Password
 
 **Features**
-* login
-* Logout
+* User can flip icons
 * Multiple Play rounds
 * Update and retain Score for all the rounds.
-
 
 **Instructions**
 
